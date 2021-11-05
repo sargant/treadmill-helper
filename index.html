@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" class="is-clipped">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=no, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-transparent">
+    <title>Treadmill Helper</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" integrity="sha256-UDtbUHqpVVfXmdJcQVU/bfDEr9xldf3Dbd0ShD0Uf/Y=" crossorigin="anonymous">
+  </head>
+  <body class="has-background-black is-flex is-justify-content-center is-align-items-center is-flex-direction-column" style="height: 100vh; touch-action: manipulation">
+    <p class="has-text-grey is-size-5">Speed</p>
+    <p class="has-text-light has-text-weight-bold is-size-1" v-text="speed.toFixed(1)">
+      6.2
+    </p>
+    <div class="buttons are-small">
+      <button :class="'button is-dark' + (speedUnits === 'mph' ? ' is-primary' : '')" @click="setSpeedUnits('mph')">
+        mph
+      </button>
+      <button :class="'button is-dark' + (speedUnits === 'km/h' ? ' is-primary' : '')" @click="setSpeedUnits('km/h')">
+        km/h
+      </button>
+    </div>
+    <div class="buttons are-large my-6">
+      <button class="button mx-4 is-danger" @click='decrement'>
+        Slower
+      </button>
+      <button class="button mx-4 is-success" @click='increment'>
+        Faster
+      </button>
+    </div>
+    <p class="has-text-grey is-size-5">Pace</p>
+    <p class="has-text-light has-text-weight-bold is-size-1" v-text="pace">
+      6'00"
+    </p>
+    <div class="buttons are-small">
+      <button :class="'button is-dark' + (paceUnits === 'min/mi' ? ' is-primary' : '')"  @click="setPaceUnits('min/mi')">min/mi</button>
+      <button :class="'button is-dark' + (paceUnits === 'min/km' ? ' is-primary' : '')" @click="setPaceUnits('min/km')">min/km</button>
+      <button :class="'button is-dark' + (paceUnits === '5k' ? ' is-primary' : '')" @click="setPaceUnits('5k')">5k time</button>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.2.21/dist/vue.global.js" integrity="sha256-he85JEAS68LuCOr7npd6Y7XiCpWubgoiRU5aHoLSqkw=" crossorigin="anonymous"></script>
+  <script src="./app.js"></script>
+</html>
